@@ -15,7 +15,8 @@ You can build a Docker image with the provided Dockerfile - this should be the e
 
 ## Building on Linux 
 
-Use the provided build-llvm.sh script file to build clang, and install a [prebuilt](https://launchpad.net/gcc-arm-embedded/4.7/4.7-2013-q2-update) gcc 
+Use the provided build-llvm.sh script file to build clang, and install a [prebuilt](https://launchpad.net/gcc-arm-embedded/4.7/4.7-2013-q2-update) gcc by placing the unpacked directory
+on the top level of this directory.
 
 ## Building on another architecture
 
