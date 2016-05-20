@@ -19,7 +19,7 @@
 FROM        ubuntu:trusty
 MAINTAINER  Ledger Firmware Team <hello@ledger.fr>
 
-ENV PATH /opt/ledger-blue/clang-arm-fropi/bin:/opt/ledger-blue/gcc-arm-none-eabi-4_7-2013q2/bin:$PATH
+ENV PATH /opt/ledger-blue/clang-arm-fropi/bin:/opt/ledger-blue/gcc-arm-none-eabi-5_3-2016q1/bin:$PATH
 ENV BOLOS_ENV /opt/ledger-blue
 
 CMD bash
@@ -28,7 +28,7 @@ RUN apt-get update && apt-get -y install cmake git build-essential vim python wg
 
 RUN mkdir /opt/ledger-blue
 
-RUN cd /opt/ledger-blue && wget -O - https://launchpad.net/gcc-arm-embedded/4.7/4.7-2013-q2-update/+download/gcc-arm-none-eabi-4_7-2013q2-20130614-linux.tar.bz2 | tar xjvf -
+RUN cd /opt/ledger-blue && wget -O - https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update/+download/gcc-arm-none-eabi-5_3-2016q1-20160330-linux.tar.bz2 | tar xjvf -
 
 COPY build-llvm.sh /opt/ledger-blue/build-llvm.sh
 
