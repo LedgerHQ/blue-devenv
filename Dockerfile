@@ -34,3 +34,5 @@ COPY build-llvm.sh /opt/ledger-blue/build-llvm.sh
 
 RUN cd /opt/ledger-blue && /opt/ledger-blue/build-llvm.sh
 
+ENV BOLOS_SDK /opt/blue-secure-sdk
+RUN cd /opt && git clone https://github.com/LedgerHQ/blue-secure-sdk
