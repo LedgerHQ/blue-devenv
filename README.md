@@ -11,7 +11,16 @@ A development environment image can be downloaded from [Docker Hub](https://hub.
 
 ## Building for Docker
 
-You can build a Docker image with the provided Dockerfile - this should be the easiest way to get started if you are not using Linux
+You can build a Docker image with the provided Dockerfile - this should be the easiest way to get started if you are not using Linux.
+
+Note: If you are using windows for building the image, after cloning, you need to disable core.autocrlf and force core.eol lf at the project level or build-llvm.sh will fail to run correctly.
+```
+git config core.autocrlf false
+git config core.eol lf
+git rm --cached -r .
+git reset --hard
+```
+
 
 ## Building on Linux 
 
