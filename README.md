@@ -19,6 +19,9 @@ Download the Nano S SDK from https://github.com/ledgerhq/nanos-secure-sdk and li
 
 Download the Blue SDK from https://github.com/ledgerhq/blue-secure-sdk and link the environment variable BOLOS_SDK to it. You'll have to checkout the tag matching your firmware version.
 
+## Troubleshooting 
+
+If you get missing include files on an x64 linux device, make sure to install the libc6-i386 and libc6-dev-i386 packages
 
 ## Contact 
 
