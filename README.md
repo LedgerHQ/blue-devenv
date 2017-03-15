@@ -1,34 +1,24 @@
 # Ledger Blue development environment
 
-Developping applications for Ledger Blue requires two compilers : 
+Developping applications for Ledger Blue requires a specific SDK and two compilers
 
   - A standard ARM gcc to build the non-secure (STM32) firmware and link the secure (ST31) applications
-  - A customized ARM clang with [ROPI support](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0491i/CHDCDGGG.html) to build the secure (ST31) applications    
+  - A standard ARM clang above 4.0.0 with [ROPI support](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0491i/CHDCDGGG.html) to build the secure (ST31) applications    
 
-## Getting from Docker 
+## Setting up the environment 
 
-A development environment image can be downloaded from [Docker Hub](https://hub.docker.com/r/nbasim/ledger-blue-sdk/)
+  - Pick a directory, linking the environment variable BOLOS_ENV to it
+  - Download a prebuild gcc from https://launchpad.net/gcc-arm-embedded/+milestone/5-2016-q1-update and unpack it into this directory
+  - Download a prebuild clang from http://releases.llvm.org/download.html#4.0.0 and unpack it into this directory, then link this directory to clang-arm-fropi or rename it
 
-## Building for Docker
+## Adding the Nano S SDK
 
-You can build a Docker image with the provided Dockerfile - this should be the easiest way to get started if you are not using Linux.
+Download the Nano S SDK from https://github.com/ledgerhq/nanos-secure-sdk and link the environment variable BOLOS_SDK to it. You'll have to checkout the tag matching your firmware version.
 
-Note: If you are using windows for building the image, after cloning, you need to disable core.autocrlf and force core.eol lf at the project level or build-llvm.sh will fail to run correctly.
-```
-git config core.autocrlf false
-git config core.eol lf
-git rm --cached -r .
-git reset --hard
-```
+## Adding the Blue SDK
 
+Download the Blue SDK from https://github.com/ledgerhq/blue-secure-sdk and link the environment variable BOLOS_SDK to it. You'll have to checkout the tag matching your firmware version.
 
-## Building on Linux 
-
-Use the provided build-llvm.sh script file to build clang, and install a [prebuilt](https://launchpad.net/gcc-arm-embedded/+milestone/5-2016-q1-update) gcc by placing the unpacked directory on the top level of this directory
-
-## Building on another architecture
-
-While the build system has been untested on Mac OS X or Windows for the time being, we suggest having a look at the [install-clang](https://github.com/rsmmr/install-clang) project to build clang and the [sources or prebuilt binaries](https://launchpad.net/gcc-arm-embedded/+milestone/5-2016-q1-update) of the ARM gcc version.  
 
 ## Contact 
 
