@@ -8,6 +8,7 @@ Developping applications for Ledger Blue requires a specific SDK and two compile
 ## Setting up the environment (Docker)
 
   - Follower the instructions on https://github.com/LedgerHQ/ledger-dev-doc/blob/0/nanos/setup.rst
+  - You have now been able to deploy, run and remove the Hello World application
 
 ## Setting up the environment (from scratch)
 
