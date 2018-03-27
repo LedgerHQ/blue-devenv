@@ -30,4 +30,6 @@ RUN cd /opt/ledger-blue && wget -O - http://releases.llvm.org/4.0.0/clang+llvm-4
 ENV PATH /opt/ledger-blue/clang-arm-fropi/bin:/opt/ledger-blue/gcc-arm-none-eabi-5_3-2016q1/bin:$PATH
 ENV BOLOS_ENV /opt/ledger-blue
 
+RUN echo "make BOLOS_ENV=/opt/ledger-blue/ BOLOS_SDK=/home/nanos-secure-sdk" > ~/.bash_history
+
 CMD cd /home && git clone https://github.com/LedgerHQ/nanos-secure-sdk.git && git clone https://github.com/LedgerHQ/blue-secure-sdk.git && bash
