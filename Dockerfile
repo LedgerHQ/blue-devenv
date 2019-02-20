@@ -30,8 +30,7 @@ RUN cd /opt/ledger-blue && wget -O - http://releases.llvm.org/4.0.0/clang+llvm-4
 ENV PATH /opt/ledger-blue/clang-arm-fropi/bin:/opt/ledger-blue/gcc-arm-none-eabi-5_3-2016q1/bin:$PATH
 ENV BOLOS_ENV /opt/ledger-blue
 
-RUN apt-get build-dep python-imaging
-RUN apt-get install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
+RUN apt-get -y install python-pip python-imaging
 RUN pip install Pillow
 
 RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex && make BOLOS_ENV=/opt/ledger-blue/ BOLOS_SDK=/home/nanos-secure-sdk" > ~/.bash_history
