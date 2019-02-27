@@ -35,4 +35,4 @@ RUN pip install Pillow
 
 RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex && make BOLOS_ENV=/opt/ledger-blue/ BOLOS_SDK=/home/nanos-secure-sdk" > ~/.bash_history
 
-CMD cd /home && git clone --branch nanos-1552 https://github.com/LedgerHQ/nanos-secure-sdk.git && git clone --branch blue-r21.1 https://github.com/LedgerHQ/blue-secure-sdk.git && bash
+CMD cd /home && git clone --branch 1552-u2f-fix https://github.com/LedgerHQ/nanos-secure-sdk.git && git clone --branch blue-r21.1 https://github.com/LedgerHQ/blue-secure-sdk.git && bash
