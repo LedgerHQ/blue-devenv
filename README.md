@@ -1,4 +1,4 @@
-# Ledger devices Docker environment
+# Ledger devices Docker developement environment
 
 This Docker image was made as the fast deployable development environment for all the Ledger devices.
 
