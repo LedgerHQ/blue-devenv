@@ -32,8 +32,10 @@ ENV BOLOS_ENV /opt/ledger
 
 RUN pip3 install ledgerblue
 
-RUN pip install Pillow
+RUN pip install ledgerblue Pillow
 
-RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex && make BOLOS_ENV=/opt/ledger/ BOLOS_SDK=/home/nanos-secure-sdk" > ~/.bash_history
+RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex src/glyphs.c src/glyphs.h && make BOLOS_ENV=/opt/ledger/ BOLOS_SDK=/home/blue-secure-sdk" >> ~/.bash_history
+RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex src/glyphs.c src/glyphs.h && make BOLOS_ENV=/opt/ledger/ BOLOS_SDK=/home/ledger/sdk-nanox-1.2.4-1.3" >> ~/.bash_history
+RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex src/glyphs.c src/glyphs.h && make BOLOS_ENV=/opt/ledger/ BOLOS_SDK=/home/nanos-secure-sdk" >> ~/.bash_history
 
 CMD cd /home && git clone --branch nanos-1552 https://github.com/LedgerHQ/nanos-secure-sdk.git && git clone --branch blue-r21.1 https://github.com/LedgerHQ/blue-secure-sdk.git && bash
