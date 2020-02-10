@@ -19,20 +19,21 @@
 FROM        ubuntu:bionic
 MAINTAINER  Ledger Firmware Team <hello@ledger.fr>
 
-RUN apt-get update && apt-get -y install cmake git build-essential vim wget libc6-i386 libc6-dev-i386 python3
+RUN apt-get update && apt-get -y install cmake git build-essential vim wget libc6-i386 libc6-dev-i386 libusb-1.0-0-dev libudev-dev python python-dev python-pip python3.6 python3.6-dev python3-pip
 
 RUN mkdir /opt/ledger
 
-RUN cd /opt/ledger && wget -O - https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update/+download/gcc-arm-none-eabi-5_3-2016q1-20160330-linux.tar.bz2 | tar xjvf -
+RUN cd /opt/ledger && wget -O - https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2018q4/gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2 | tar xjvf -
 
-RUN cd /opt/ledger && wget -O - http://releases.llvm.org/4.0.0/clang+llvm-4.0.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz | tar xJvf - && mv clang+llvm-4.0.0-x86_64-linux-gnu-ubuntu-14.04 clang-arm-fropi
+RUN cd /opt/ledger && wget -O - http://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-14.04.tar.xz | tar xJvf - && mv clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-14.04 clang-arm-fropi
 
-ENV PATH /opt/ledger/clang-arm-fropi/bin:/opt/ledger/gcc-arm-none-eabi-5_3-2016q1/bin:$PATH
+ENV PATH /opt/ledger/clang-arm-fropi/bin:/opt/ledger/gcc-arm-none-eabi-8-2018-q4-major/bin:$PATH
 ENV BOLOS_ENV /opt/ledger
 
-RUN apt-get -y install python3-pip libusb-1.0-0-dev libudev-dev
 RUN pip3 install ledgerblue
+
+RUN pip install Pillow
 
 RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex && make BOLOS_ENV=/opt/ledger/ BOLOS_SDK=/home/nanos-secure-sdk" > ~/.bash_history
 
-CMD cd /home && git clone --branch nanos-160 https://github.com/LedgerHQ/nanos-secure-sdk.git && git clone --branch blue-r23 https://github.com/LedgerHQ/blue-secure-sdk.git && bash
+CMD cd /home && git clone --branch nanos-1552 https://github.com/LedgerHQ/nanos-secure-sdk.git && git clone --branch blue-r21.1 https://github.com/LedgerHQ/blue-secure-sdk.git && bash
