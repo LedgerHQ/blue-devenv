@@ -1,30 +1,15 @@
-# Ledger Blue development environment
+# Ledger devices Docker environment
 
-Developping applications for Ledger Blue requires a specific SDK and two compilers
+This Docker image was made as the fast deployable development environment for all the Ledger devices.
 
-  - A standard ARM gcc to build the non-secure (STM32) firmware and link the secure (ST31) applications
-  - A standard ARM clang above 4.0.0 with [ROPI support](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0491i/CHDCDGGG.html) to build the secure (ST31) applications    
+You can run it using `docker run -t -v ~/Documents/ledger:/home/ledger -i tolsi/ledger-devenv`.
 
-## Setting up the environment 
+Note that you must specify the folder containing the Ledger applications and the private Nano X SDK (if you have it) from the folder on your system (`~/Documents/ledger` in this example) to the docker container (it will be available in `/home/ledger`).
 
-  - Pick a directory, linking the environment variable BOLOS_ENV to it
-  - Download a prebuild gcc from https://launchpad.net/gcc-arm-embedded/+milestone/5-2016-q1-update and unpack it into this directory
-  - Download a prebuild clang from http://releases.llvm.org/download.html#4.0.0 and unpack it into this directory, then link this directory to clang-arm-fropi or rename it
+Nano S and Blue SDK of current versions are downloaded when docker container starts (to `/home/nanos-secure-sdk` and `/home/blue-secure-sdk` respectively) and Nano X SDK should be in the folder `/home/ledger/sdk-nanox-1.2.4-1.3`.
 
-## Adding the Nano S SDK
-
-Download the Nano S SDK from https://github.com/ledgerhq/nanos-secure-sdk and link the environment variable BOLOS_SDK to it. You'll have to checkout the tag matching your firmware version.
-
-## Adding the Blue SDK
-
-Download the Blue SDK from https://github.com/ledgerhq/blue-secure-sdk and link the environment variable BOLOS_SDK to it. You'll have to checkout the tag matching your firmware version.
-
-## Troubleshooting 
-
-If you get missing include files on an x64 linux device, make sure to install the libc6-i386 and libc6-dev-i386 packages
+You can go to the folder of any of the Ledger application and use ready-made commands in bash history in advance to build the application for the corresponding device. To do this, just press the up key several times while in the console and then press Enter.
 
 ## Contact 
 
-For any question please contact hello@ledger.fr 
-
-
+For any question please create an issue in this repo
