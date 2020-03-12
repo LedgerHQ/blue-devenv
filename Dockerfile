@@ -20,4 +20,4 @@ RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex src/glyphs.c src/glyphs.h && make
 RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex src/glyphs.c src/glyphs.h && make BOLOS_ENV=/opt/ledger/ BOLOS_SDK=/home/ledger/sdk-nanox-1.2.4-1.3" >> ~/.bash_history
 RUN echo "rm -rf bin/ debug/ dep/ obj/ app.hex src/glyphs.c src/glyphs.h && make BOLOS_ENV=/opt/ledger/ BOLOS_SDK=/home/nanos-secure-sdk" >> ~/.bash_history
 
-CMD cd /home && git clone --branch nanos-1552 https://github.com/LedgerHQ/nanos-secure-sdk.git && git clone --branch blue-r21.1 https://github.com/LedgerHQ/blue-secure-sdk.git && bash
+CMD cd /home && git clone --branch nanos-og-1601 https://github.com/LedgerHQ/nanos-secure-sdk.git && git clone --branch blue-r21.1 https://github.com/LedgerHQ/blue-secure-sdk.git && bash
