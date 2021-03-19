@@ -1,3 +1,5 @@
+:warning: **This repository is deprecated** Use https://ledger.readthedocs.io/en/latest/ for up to date information.
+
 # Ledger Blue development environment
 
 Developping applications for Ledger Blue requires a specific SDK and two compilers
