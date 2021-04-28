@@ -7,7 +7,12 @@ Developping applications for Ledger Blue requires a specific SDK and two compile
   - A standard ARM gcc to build the non-secure (STM32) firmware and link the secure (ST31) applications
   - A standard ARM clang above 4.0.0 with [ROPI support](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0491i/CHDCDGGG.html) to build the secure (ST31) applications    
 
-## Setting up the environment 
+## Setting up the environment (Docker)
+
+  - Follower the instructions on https://github.com/LedgerHQ/ledger-dev-doc/blob/0/nanos/setup.rst
+  - You have now been able to deploy, run and remove the Hello World application
+
+## Setting up the environment (from scratch)
 
   - Pick a directory, linking the environment variable BOLOS_ENV to it
   - Download a prebuild gcc from https://launchpad.net/gcc-arm-embedded/+milestone/5-2016-q1-update and unpack it into this directory
